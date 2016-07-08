@@ -1,5 +1,5 @@
 # substituter
-Simple substitution for Node.js
+Simple substitution for Node.js  [![Build Status](https://drone.io/github.com/Nordstrom/substituter/status.png)](https://drone.io/github.com/Nordstrom/substituter/latest)
 
 ## Installation
 Install via npm as follows:
