@@ -1,0 +1,41 @@
+{
+  "name": "substituter",
+  "version": "1.0.0",
+  "description": "Simple substitution for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nordstrom/substituter.git"
+  },
+  "files": [
+    "index.js",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "substitution",
+    "templates",
+    "templating",
+    "replacement",
+    "replace",
+    "tmpl",
+    "substitute"
+  ],
+  "author": "Andy Day (andyday)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Nordstrom/substituter/issues"
+  },
+  "homepage": "https://github.com/Nordstrom/substituter#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "should": "^9.0.2"
+  },
+  "dependencies": {
+    "lodash": "^4.13.1"
+  }
+}
