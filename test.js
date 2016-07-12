@@ -24,4 +24,16 @@ describe('substituter', function () {
     it('should sub into xml file', function () {
         sub(fs.readFileSync('./test.xml'), { globe: { region: 'world' } }).should.equal('<test><testel1>world</testel1></test>');
     });
+
+    it('should handle undefined tmpl gracefully', function() {
+        should.equal(sub(undefined, undefined), undefined);
+    });
+
+    it('should handle null tmpl gracefully', function() {
+        should.equal(sub(null, undefined), null);
+    });
+
+    it('should handle undefined replacements gracefully', function() {
+        should.equal(sub('blah', undefined), 'blah');
+    });
 });
