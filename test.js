@@ -45,4 +45,8 @@ describe('substituter', function () {
         sub({ obj1: { obj2: { name: '${params1.params2.param}' } } }, { params1: { params2: { param: 'param-value' } } })
             .should.eql({ obj1: { obj2: { name: 'param-value' } } });
     });
+
+    it('should sub regex into object', function () {
+        sub({ name: '${param}' }, { param: /xyz/ }).should.eql({ name: /xyz/ });
+    });
 });

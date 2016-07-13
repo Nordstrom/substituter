@@ -1,6 +1,6 @@
 {
   "name": "substituter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple substitution for Node.js",
   "main": "index.js",
   "scripts": {

@@ -4,9 +4,15 @@ var _ = require('lodash');
 
 module.exports = function (tmpl, data) {
     function substitute(p) {
-        return p.replace(/\$\{([\w\.\-]+)}/g, function (match, term) {
+        var r = p.replace(/\$\{([\w\.\-]+)}/g, function (match, term) {
             return _.get(data, term) || match;
         });
+
+        if (_.startsWith(r, '/') && _.endsWith(r, '/')) {
+            return new RegExp(_.trim(r, '/'));
+        }
+
+        return r;
     }
 
     function transform(obj) {
