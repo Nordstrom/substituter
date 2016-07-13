@@ -27,4 +27,3 @@ var sub = require('substituter');
 var results = sub({ board: { message: 'Hello ${globe.region}!' }}, { globe: { region: 'world' } });
 // { board: { message: 'Hello ${globe.region}!' } }
 ```
-
