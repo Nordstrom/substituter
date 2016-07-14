@@ -49,4 +49,19 @@ describe('substituter', function () {
     it('should sub regex into object', function () {
         sub({ name: '${param}' }, { param: /xyz/ }).should.eql({ name: /xyz/ });
     });
+
+    it('should sub for array of objects', function () {
+        sub([{ name: '${param1}' }, { name: '${param2}' }], {
+            param1: 'p1',
+            param2: 'p2'
+        }).should.eql([{ name: 'p1' }, { name: 'p2' }]);
+    });
+
+    it('should sub for object with array of objects', function () {
+        sub({ obj: [{ name: '${param1}' }, { name: '${param2}' }] }, {
+            param1: 'p1',
+            param2: 'p2'
+        }).should.eql({ obj: [{ name: 'p1' }, { name: 'p2' }] });
+    });
+
 });

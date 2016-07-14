@@ -16,28 +16,13 @@ module.exports = function (tmpl, data) {
     }
 
     function transform(obj) {
-        return _.mapValues(obj, function (p) {
-            if (_.isPlainObject(p)) {
-                return transform(p);
-            }
-            if (_.isString(p)) {
-                return substitute(p);
-            }
-            if (_.isArray(p)) {
-                for (var i = 0; i < p.length; i++) {
-                    if (_.isString(p[i])) {
-                        p[i] = substitute(p[i]);
-                    }
-                }
-            }
-            return p;
-        });
+        if (obj === undefined || obj === null) return obj;
+        if (_.isBuffer(obj)) return substitute(obj.toString());
+        if (_.isString(obj)) return substitute(obj);
+        if (_.isArray(obj)) return _.map(obj, transform);
+        if (_.isPlainObject(obj)) return _.mapValues(obj, transform);
+        return obj;
     }
 
-    if (!tmpl) return tmpl;
-    if (_.isBuffer(tmpl)) return substitute(tmpl.toString());
-    if (_.isPlainObject(tmpl)) return transform(tmpl);
-    if (_.isString(tmpl)) return substitute(tmpl);
-
-    return tmpl;
+    return transform(tmpl);
 };
