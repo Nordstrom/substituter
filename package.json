@@ -4,7 +4,9 @@
   "description": "Simple substitution for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "standard | snazzy && mocha",
+    "coverage": "nyc --reporter=lcov --reporter=text mocha",
+    "coveralls": "nyc --reporter=text-lcov mocha | coveralls"
   },
   "repository": {
     "type": "git",
@@ -31,9 +33,19 @@
     "url": "https://github.com/Nordstrom/substituter/issues"
   },
   "homepage": "https://github.com/Nordstrom/substituter#readme",
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "before",
+      "after"
+    ]
+  },
   "devDependencies": {
-    "mocha": "^2.5.3",
-    "should": "^9.0.2"
+    "mocha": "^5.2.0",
+    "should": "^9.0.2",
+    "snazzy": "^7.0.0",
+    "standard": "^11.0.1"
   },
   "dependencies": {
     "lodash": "^4.13.1"
